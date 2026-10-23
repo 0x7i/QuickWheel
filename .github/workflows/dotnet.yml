@@ -2,11 +2,13 @@ name: Build
 
 on:
   push:
+    branches:
+      - "**"
   pull_request:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: build-${{ github.ref }}
@@ -35,3 +37,27 @@ jobs:
           name: RadialCommandWheel-win-x64
           path: dist/RadialCommandWheel.exe
           if-no-files-found: error
+
+      - name: Move nightly tag to this commit
+        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+        shell: pwsh
+        run: |
+          git tag --force Nightly $env:GITHUB_SHA
+          git push --force origin refs/tags/Nightly
+
+      - name: Create or update Nightly release
+        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: Nightly
+          target_commitish: ${{ github.sha }}
+          name: Nightly Build
+          body: |
+            Automated nightly build from commit `${{ github.sha }}`.
+
+            Branch: `${{ github.ref_name }}`
+          prerelease: true
+          make_latest: false
+          files: dist/RadialCommandWheel.exe
+          overwrite_files: true
+          fail_on_unmatched_files: true
