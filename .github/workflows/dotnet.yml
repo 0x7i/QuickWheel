@@ -51,12 +51,13 @@ jobs:
         with:
           tag_name: Nightly
           target_commitish: ${{ github.sha }}
-          name: Nightly Build
+          name: Nightly
           body: |
             Automated nightly build from commit `${{ github.sha }}`.
 
             Branch: `${{ github.ref_name }}`
           prerelease: true
+          draft: false
           make_latest: false
           files: dist/RadialCommandWheel.exe
           overwrite_files: true
