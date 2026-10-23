@@ -1,0 +1,11 @@
+bin/
+obj/
+dist/
+.vs/
+*.user
+*.suo
+TestResults/
+artifacts/
+.artifacts/
+docs/
+tests/
