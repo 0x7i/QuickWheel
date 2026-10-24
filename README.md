@@ -125,8 +125,3 @@ The original files may be located in different directories on the new machine. O
 
 Suggestions, bug reports, and feature requests are welcome. Open an issue in the repository to share feedback or discuss an improvement.
 
----
-
-## License
-
-See the repository's [LICENSE](https://github.com/0x7i/QuickWheel/blob/main/LICENSE) file for licensing terms.
