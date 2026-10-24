@@ -123,5 +123,10 @@ The original files may be located in different directories on the new machine. O
 
 ## Contributing
 
-Suggestions, bug reports, and feature requests are welcome. Open an issue in the repository to share feedback or discuss an improvement.
+Contributions, suggestions, bug reports, and feature requests are welcome!
 
+- **Report a bug:** [Open an issue](https://github.com/0x7i/QuickWheel/issues/new).
+- **Suggest a feature:** Share your ideas through [GitHub Issues](https://github.com/0x7i/QuickWheel/issues/new).
+- **Contribute code:** Submit a pull request with your proposed changes.
+
+Every bit of feedback helps make Radial Command Wheel better. Thank you for your support!
